@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t stevemelnikovmelbourne/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run stevemelnikovmelbourne/docker-react npm run test -- --coverage
+
+
